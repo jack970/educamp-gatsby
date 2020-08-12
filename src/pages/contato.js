@@ -2,31 +2,24 @@ import React from "react"
 import Header from '../components/Header'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
-import ImageLeft from "../components/ImageLeft"
-import Parcerias from "../components/Parcerias"
-import InsightsHome from "../components/InsightsHome"
 import Footer from '../components/Footer'
+import FormContact from "../components/FormContact"
 
-const IndexPage = () => {
+const ContatoPage = () => {
 
   return(
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Contato" />
       <Header
-        title='Representando a força do campo.'
+        title='Contato'
         particulas="block"
         descricao='Você é um cliente especial! Para agradecer essa parceria, gostaríamos de oferecer à você uma oportunidade exclusiva. Fale com o nosso representante.'
         altura='20'
         />
-      <ImageLeft />
-      <Parcerias />
-      <InsightsHome
-        title="Insight Noticias"
-        columns="3"
-      />
+      <FormContact />
       <Footer />
     </Layout>
   )
 }
 
-export default IndexPage
+export default ContatoPage
