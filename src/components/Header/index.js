@@ -20,7 +20,7 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                     }
                 }
             }
-            file(relativePath: {eq: "logo.png"}) {
+            file(relativePath: {eq: "logo-header.png"}) {
                 childImageSharp {
                   fluid(maxWidth: 300) {
                     ...GatsbyImageSharpFluid_tracedSVG

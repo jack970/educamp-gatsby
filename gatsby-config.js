@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://aducamp.com.br/',
+    siteUrl: 'https://aducamp.netlify.app/',
     title: `aducamp`,
     description: `Site corporativo voltado para venda de produtos agrícolas.`,
     author: `Work - Informática`,
@@ -181,7 +181,8 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-offline`
   ],
 }
