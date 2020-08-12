@@ -1,6 +1,13 @@
 backend:
   name: git-gateway
+  branch: master
   preview_context: netlify/netlify-cms-www/deploy-preview
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
 
 display_url: https://blogdaquarentena.netlify.app
 logo_url: https://educamp.netlify.app/icons/icon-192x192.png
