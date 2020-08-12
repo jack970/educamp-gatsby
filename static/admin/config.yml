@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: jack970/educamp-gatsby
   branch: master
   preview_context: netlify/netlify-cms-www/deploy-preview
   commit_messages:
