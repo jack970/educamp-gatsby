@@ -79,9 +79,14 @@ export const ImagePost = styled(Img)`
 export const LinkPost = styled(Link)`
     grid-column-end: span 2;
 
-    ${media.lessThan("medium")`
+    ${media.lessThan("large")`
         display: block;
         margin: 5rem auto;
+    `}
+
+    ${media.lessThan("medium")`
+        display: block;
+        margin: 2rem auto;
     `}
 `
 
@@ -119,4 +124,54 @@ export const ButtonPost = styled.button`
         border-color: #37AA53;
     }
     
+`
+
+export const LayoutProductsWrapper = styled.div`
+    margin-bottom: 60px;
+    padding: 2rem 8rem;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 360px auto;
+    grid-gap: 45px 110px;
+    display: grid;
+
+    ${media.lessThan("large")`
+        display: block;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    `}
+
+    ${media.lessThan("small")`
+        padding: 1rem;
+    `}
+`
+
+
+export const ArticleProducts = styled.article`
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-column: 1/span 6;
+    grid-row: 1/span 2;
+    grid-gap: 35px;
+
+    ${media.lessThan("large")`
+        display: block;
+        margin-bottom: 3rem;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    `}
+
+    a:nth-of-type(5) {
+        grid-column-start: 1;
+    }
+
+    a:nth-of-type(8n) {
+        grid-column-start: 1;
+    }
+
+    a:nth-of-type(2) {
+        grid-column: 3/span 2;
+
+    }
+
+ 
 `

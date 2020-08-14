@@ -37,6 +37,9 @@ const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
     }
+    a, button {
+        user-select: none;
+    }
     ol, ul {
         list-style: none;
     }

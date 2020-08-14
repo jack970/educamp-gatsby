@@ -12,7 +12,6 @@ const MenuBuguer = ({ open }) => {
                 siteMetadata {
                     menuTop {
                         label
-                        linkLabel
                         subMenu {subLabel}
                     }
                 }
@@ -21,7 +20,6 @@ const MenuBuguer = ({ open }) => {
         `)
 
     const handleClick = e => {
-
         e.preventDefault()
         if(e.currentTarget.lastChild.style.display === 'block') {
             e.currentTarget.lastChild.style.display = 'none'
@@ -36,16 +34,16 @@ const MenuBuguer = ({ open }) => {
             <S.NavBarCollapse open={open}>
                 <S.MenuPrincipal>
                     {menu.map((menuPrincipal, id) => 
-                    <S.MenuItem key={id} onClick={(e) => handleClick(e)}>
+                    <S.MenuItem key={id} onClick={menuPrincipal.subMenu ? (e) => handleClick(e) : null}>
                             {menuPrincipal.subMenu ? (
-                                <S.LinkcomSubmenu>
+                                <S.LinkcomSubmenu >
                                         {menuPrincipal.label}
                                 </S.LinkcomSubmenu>
 
                             ) : 
                                (
                             <S.MenuItemLink 
-                                to={`/${kebabCase(menuPrincipal.label)}`}>
+                                to={`${kebabCase(menuPrincipal.label) === "inicio" ? `/` : `/${kebabCase(menuPrincipal.label)}`}`}>
                                     {menuPrincipal.label}
                             </S.MenuItemLink>
                                    )
@@ -54,7 +52,7 @@ const MenuBuguer = ({ open }) => {
                                 <S.DropdownMenu >
                                     {menuPrincipal.subMenu.map((subLink, id) => 
                                         <S.ListDropdown key={id}>
-                                            <S.SubMenuItemLink to={`${menuPrincipal.linkLabel}/${kebabCase(subLink.subLabel)}`}>
+                                            <S.SubMenuItemLink to={`/${kebabCase(subLink.subLabel)}`}>
                                                 {subLink.subLabel}
                                             </S.SubMenuItemLink>
                                         </S.ListDropdown>

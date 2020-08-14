@@ -22,7 +22,6 @@ const Produtos = ({data, PageContext}) => {
       <ProductsSection 
         title={product.frontmatter.title}
         conteudo={{__html: product.html}}
-        price={product.frontmatter.price}
         image={product.frontmatter.image}
         image1={product.frontmatter.image1}
         image2={product.frontmatter.image2}
@@ -43,7 +42,6 @@ export const query = graphql`
                 date(locale:"pt-br" ,formatString: "DD [de] MMMM [de] YYYY")
                 description
                 title
-                price
                 image {
                     childImageSharp {
                         fluid(maxWidth: 1100) {

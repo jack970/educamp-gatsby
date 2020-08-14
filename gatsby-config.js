@@ -13,7 +13,6 @@ module.exports = {
       },
       {
         label: "Sobre a Empresa",
-        linkLabel: "/empresa",
         subMenu: [
           {
             subLabel: 'História'
@@ -31,7 +30,6 @@ module.exports = {
       },
       {
         label: "Corporativa",
-        linkLabel: "/empresa",
         subMenu: [
           {
             subLabel: 'Compromissos com a Qualidade e Cliente'
@@ -49,57 +47,6 @@ module.exports = {
       },
       {
         label: "Produtos",
-        linkLabel: "/produtos",
-        subMenu: [
-          {
-            subLabel: 'MAP 11 52'
-          },
-          {
-            subLabel: 'Cloreto de Potássio'
-          },
-          {
-            subLabel: 'Ureia Granulada'
-          },
-          {
-            subLabel: 'Ureia Automotiva'
-          },
-          {
-            subLabel: 'Ureia Prill'
-          },
-          {
-            subLabel: 'Ureia Pecuaria'
-          },
-          {
-            subLabel: 'Sulfato de Amônia'
-          },
-          {
-            subLabel: 'Nitrato de Amônia'
-          },
-          {
-            subLabel: 'Super Triplo'
-          },
-          {
-            subLabel: 'Super Simples 00 21'
-          },
-          {
-            subLabel: 'Fosfato 00 20 Granulado'
-          },
-          {
-            subLabel: 'Fosfato Natural Farelado'
-          },
-          {
-            subLabel: 'Calcário Dolomítico'
-          },
-          {
-            subLabel: 'Calcário Calcítico'
-          },
-          {
-            subLabel: 'Gesso'
-          },
-          {
-            subLabel: 'Formulados no Grão'
-          }
-        ]
       },
       {
         label: "Contato"

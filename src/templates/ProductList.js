@@ -9,26 +9,28 @@ import InsightsBlog from '../components/InsightsBlog'
 import PaginationBlog from "../components/PaginationBlog"
 import Footer from "../components/Footer"
 
-const BlogList = ({data, pageContext}) => {
+const ProductList = ( {data, pageContext}) => {
     const postList = data.allMarkdownRemark.edges
 
-    const { currentPage, numPages} = pageContext
+    const { currentPage, productsNumPages} = pageContext
     const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/blog' : `blog/page/${currentPage - 1}`
-    const nextPage = `/blog/page/${currentPage + 1}`
-    
+
+    const isLast = currentPage === productsNumPages
+    const prevPage = currentPage - 1 === 1 ? '/produtos' : `produtos/page/${currentPage - 1}`
+    const nextPage = `/produtos/page/${currentPage + 1}`
+
+    console.log(productsNumPages)
     return(
         <Layout>
-            <SEO title='Blog' />
+            <SEO title='Produtos' />
             <Header 
-                title='Blog'
-                secondtitle='Últimos artigos e novidades'
+                title='Todos os Produtos'
+                secondtitle='Veja os produtos listados'
                 particulas="block"
                 altura='19'
             />
-            <S.LayoutWrapper>
-                <S.ArticleWrapper>
+            <S.LayoutProductsWrapper>
+              <S.ArticleProducts>
                     {postList.map(({node}, i) => (
                         <InsightsBlog key={i}
                             title={node.frontmatter.title}
@@ -36,33 +38,32 @@ const BlogList = ({data, pageContext}) => {
                             date={node.frontmatter.date}
                             link={node.fields.slug}/>
                     ))}
-                </S.ArticleWrapper>
+              </S.ArticleProducts>
                 <SideBarBlog 
-                  currentPage='blog'
-                  categoriesTitle="Útimos Posts"
+                  categoriesTitle="Produtos"
                   iterateList={postList}
                 />
-            </S.LayoutWrapper>
-            <PaginationBlog 
+            </S.LayoutProductsWrapper>
+             <PaginationBlog 
                 isFirst={isFirst}
                 isLast={isLast}
                 currentPage={currentPage}
                 nextPage={nextPage}
                 prevPage={prevPage}
-                numPages={numPages}
+                numPages={productsNumPages}
             />
             <Footer />
         </Layout>
     )
 }
 
-export default BlogList
+export default ProductList
 
 export const PostListQuery = graphql`
-  query PostListQuery($skip: Int!, $limit: Int!) {
+  query ProductsListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
-      filter: {fileAbsolutePath: {regex: "/Posts/"}}
+      filter: {fileAbsolutePath: {regex: "/Produtos/"}}
       limit: $limit
       skip: $skip
     ) {

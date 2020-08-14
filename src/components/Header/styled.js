@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import media from 'styled-media-query'
 
 export const BackgroundBarWrapper = styled.div`
-    background: linear-gradient(140deg,#31363D 0%,#177330 100%) no-repeat;
+    background: linear-gradient(345deg,#31363D 0%,#177330 70%) no-repeat;
     
     ::after {
         content: '';
@@ -41,6 +41,10 @@ export const NavBarLogo = styled(Img)`
     width: 12rem;
     height: 100%;
     margin: 2rem 6rem 0 6rem;
+
+    img {
+        filter: drop-shadow(2px 1px 1px #fff);
+      }
 
     ${media.lessThan("large")`
         margin:2rem 0;
@@ -163,4 +167,44 @@ export const DropdownLink = styled(Link)`
     display:block;
     color: inherit;
     font-weight: 400;
+`
+
+export const SearchWrapper = styled.div`
+    padding: .5rem .9rem;
+    font-size: .72rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+
+    ${media.lessThan("large")`
+    display: none;
+
+`}
+`
+
+export const SearchToggle = styled.button`
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+    color: currentColor;
+    cursor: pointer;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+`
+
+export const SearchCollapse = styled.div`
+    display: ${props => props.showSearch ? 'block' : 'none'};
+    position: absolute;
+    width: 100%;
+    left: 0;
+`
+
+export const SearchContainer = styled.div`
+    padding: 2.5rem;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    left: 0;
 `

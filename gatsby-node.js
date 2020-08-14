@@ -85,7 +85,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
         posts.forEach(({node, next, previous}) => {
             createPage ({
-                path: `/blog/${_.kebabCase(node.fields.slug)}`,
+                path: `${_.kebabCase(node.fields.slug)}`,
                 component: path.resolve('./src/templates/blogPost.js'),
                 context: {
                     slug: node.fields.slug,
@@ -97,7 +97,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
         empresa.forEach(({node}) =>{
           createPage ({
-            path: `/empresa/${_.kebabCase(node.fields.slug)}`,
+            path: `${_.kebabCase(node.fields.slug)}`,
             component: path.resolve('./src/templates/EmpresaPost.js'),
             context: {
                 slug: node.fields.slug,
@@ -108,7 +108,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
         products.forEach(({node}) => {
           createPage ({
-            path: `/produtos/${_.kebabCase(node.fields.slug)}`,
+            path: `${_.kebabCase(node.fields.slug)}`,
             component: path.resolve('./src/templates/ProductsPost.js'),
             context: {
               slug: node.fields.slug
@@ -127,6 +127,22 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
               limit: postsPerPage,
               skip: i * postsPerPage,
               numPages,
+              currentPage: i + 1
+            }
+          })
+        })
+
+        const productsPerPage = 8
+        const productsNumPages = Math.ceil(products.length / productsPerPage)
+        
+        Array.from({ length: productsNumPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? '/produtos' : `/produtos/page/${i + 1}`,
+            component: path.resolve('./src/templates/ProductList.js'),
+            context: {
+              limit: productsPerPage,
+              skip: i * productsPerPage,
+              productsNumPages,
               currentPage: i + 1
             }
           })

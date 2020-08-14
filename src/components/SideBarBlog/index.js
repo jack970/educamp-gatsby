@@ -1,9 +1,9 @@
 import React from 'react'
 import * as S from './styled'
 import Search from '../Search'
+import { kebabCase } from 'lodash'
 
-const SideBarBlog = () => {
-    
+const SideBarBlog = ({iterateList, categoriesTitle, currentPage}) => {
     return(
         <S.SideBarWrapper>
             <S.SearchWrapper>
@@ -20,15 +20,17 @@ const SideBarBlog = () => {
                     <option value='/'>Teste</option>
                     <option value='/'>Teste</option>
                 </S.SelectArchives>
-            </S.ArchivesWrapper>
+            </S.ArchivesWrapper> */}
             <S.CategoriesWrapper>
-                <S.Title>Últimos Posts</S.Title>
+                <S.Title>{categoriesTitle}</S.Title>
                 <S.CategoriasMenu>
-                    <S.CategoriasList>
-                        <S.CategoriasLink to='/'>Teste</S.CategoriasLink>
+                    {iterateList.slice(0,17).map(({node}, id) => (
+                    <S.CategoriasList key={id}>
+                        <S.CategoriasLink to={`/${kebabCase(node.fields.slug)}`}>{node.frontmatter.title}</S.CategoriasLink>
                     </S.CategoriasList>
+                    ))}
                 </S.CategoriasMenu>
-            </S.CategoriesWrapper> */}
+            </S.CategoriesWrapper>
         </S.SideBarWrapper>
     )
 }

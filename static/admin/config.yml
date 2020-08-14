@@ -56,7 +56,6 @@ collections:
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Descrição", name: "description", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime", format: 'YYYY-MM-DD hh:mm:ss'}
-      - {label: "Preço", name: "price", widget: "number", default: 0.0}
       - {label: "Preview1", name: "image", widget: "image"}
       - {label: "Preview2", name: "image1", widget: "image"}
       - {label: "Preview3", name: "image2", widget: "image"}

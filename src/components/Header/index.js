@@ -5,6 +5,8 @@ import * as S from './styled'
 import {kebabCase} from 'lodash'
 import MenuMobile from '../MenuMobile'
 import MenuBurguer from '../MenuMobile/MenuBuguer'
+import Search from '../Search'
+import Icon from '../SideBarBlog/Icon'
 
 const Header = ({title, secondtitle, descricao, particulas, altura}) => {
     const data = useStaticQuery(graphql`
@@ -13,7 +15,6 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                 siteMetadata {
                     menuTop {
                         label
-                        linkLabel
                         subMenu {
                             subLabel
                         }
@@ -29,7 +30,7 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
               }
         }
     `)
-
+    const [showSearch, setShowSearch] = useState(false)
     const [mobile, setMobile] = useState(false)
     const Links = data.site.siteMetadata.menuTop
     const logo = data.file.childImageSharp.fluid
@@ -45,11 +46,11 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                     params={{
                         particles: {
                             color: {
-                                value: "#000000"
+                                value: "#333"
                             },
                             line_linked: {
                                 color: {
-                                    value: "#000"
+                                    value: "#333"
                                 }
                             },
                             number: {
@@ -82,7 +83,7 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                                 (<S.DropdownMenu>
                                     {link.subMenu.map((submenu, id)=> 
                                             <S.DropdownList key={id}>
-                                                <S.DropdownLink to={`${link.linkLabel}/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.DropdownLink>
+                                                <S.DropdownLink to={`/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.DropdownLink>
                                             </S.DropdownList>
                                         )}
                                 </S.DropdownMenu>) : null}
@@ -90,6 +91,18 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                             )
                         }
                     </S.UlNavBar>
+
+                    <S.SearchWrapper>
+                        <S.SearchToggle onClick={() => setShowSearch(!showSearch)}>
+                            <Icon />
+                        </S.SearchToggle>
+                        <S.SearchCollapse showSearch={showSearch}>
+                            <S.SearchContainer>
+                                <Search />
+                            </S.SearchContainer>  
+                        </S.SearchCollapse>
+                    </S.SearchWrapper>
+
                     <MenuMobile open={mobile} setOpen={setMobile}/>
                 </S.NavBarFlex>
                 <MenuBurguer open={mobile} />

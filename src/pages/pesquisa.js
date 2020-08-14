@@ -43,7 +43,6 @@ const Pesquisa = ({data, location}) => {
         <GridContainer>
           { hasSearchResults ? (
             setposts.map(({node}, id) => {
-              console.log()
               return(
                 <CardSearch key={id}
                   title={node.frontmatter.title}
@@ -68,7 +67,6 @@ export default Pesquisa
 export const pageQuery = graphql`
   query SearchFilter {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: {regex: "/Posts/"}}
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {

@@ -2,9 +2,9 @@ import React from 'react'
 import * as S from './styled.js'
 import {kebabCase} from 'lodash'
 
-const InsightsBlog = ({title, image, date, link}) => {
+const InsightsBlog = ({title, image, date, link, currentPage}) => {
     return(
-        <S.LinkPost to={`/blog/${kebabCase(link)}`}>
+        <S.LinkPost to={`/${kebabCase(link)}`}>
             {image && (
                 <S.ImagePost fluid={image} />
             )}

@@ -11,7 +11,7 @@ const Footer = () => {
                 siteMetadata {
                     menuTop {
                         label
-                        linkLabel
+                        
                         subMenu {
                             subLabel
                         }
@@ -23,7 +23,7 @@ const Footer = () => {
     `)
 
     const footerlinks = data.site.siteMetadata.menuTop
-    const footersliced = footerlinks.slice(2,5)
+    const footersliced = footerlinks.slice(2,4)
     return(
         <S.LayoutWrapper>
             <S.FooterContainer>
@@ -37,7 +37,7 @@ const Footer = () => {
                             <S.MenuUl>
                                 {submenusliced.map((submenu, id) =>
                                     <S.MenuList key={id}>
-                                        <S.MenuLink to={`${title.linkLabel}/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.MenuLink>
+                                        <S.MenuLink to={`/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.MenuLink>
                                     </S.MenuList>  
                                 )}
                             </S.MenuUl>

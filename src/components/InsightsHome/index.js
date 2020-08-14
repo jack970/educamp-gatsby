@@ -44,7 +44,7 @@ const InsightsBlog = ({title, columns}) => {
             </S.DivRight>
             <S.ArticleWrapper theme={{ columns: columns}}>
                 {data.allMarkdownRemark.edges.map(({node}, i) => (
-                    <S.LinkPost to={`/blog/${kebabCase(node.fields.slug)}`} key={i}>
+                    <S.LinkPost to={`/${kebabCase(node.fields.slug)}`} key={i}>
                         <S.ImagePost fluid={node.frontmatter.image.childImageSharp.fluid}/>
                         <S.TitlePost>
                             {node.frontmatter.title}

@@ -4,7 +4,7 @@ import { kebabCase } from 'lodash'
 const CardSearch = ({title, date, link, content}) => {
     return(
         <S.LayoutWrapper>
-            <S.LinkPost to={`/blog/${kebabCase(link)}`}>
+            <S.LinkPost to={`/${kebabCase(link)}`}>
                 <S.TitlePost>{title}</S.TitlePost>
                 <S.ContentPost>{content}</S.ContentPost>
                 <S.DatePost>{date}</S.DatePost>

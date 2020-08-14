@@ -56,7 +56,7 @@ const ProductsSection = ({title, conteudo, price, image, image1, image2}) => {
                     <TitleProduct >
                         {title}
                     </TitleProduct>
-                    <S.ProductsPrice>Preço: R${price.toLocaleString(undefined, {maximumFractionDigits:2})}</S.ProductsPrice>
+                    {/* <S.ProductsPrice>Preço: R${price.toLocaleString(undefined, {maximumFractionDigits:2})}</S.ProductsPrice> */}
                 </PostHeader>
                 <MainContent>
                     <div dangerouslySetInnerHTML={conteudo} />

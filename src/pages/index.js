@@ -14,7 +14,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Header
         title='Representando a força do campo.'
-        particulas="block"
+        particulas="none"
         descricao='Você é um cliente especial! Para agradecer essa parceria, gostaríamos de oferecer à você uma oportunidade exclusiva. Fale com o nosso representante.'
         altura='20'
         />

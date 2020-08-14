@@ -1,9 +1,14 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const LayoutWrapper = styled.div`
     margin: auto;
     padding: 2rem 0;
     max-width: 40rem;
+
+    ${media.lessThan("medium")`
+        padding: 2rem;
+    `}
 `
 
 export const ContactForm = styled.form``
@@ -39,6 +44,10 @@ export const ButtonForm = styled.button`
     line-height: 12px;
     padding: 12px 24px;
     font-family: arial, helvetica, sans-serif;
+
+    ${media.lessThan("medium")`
+        padding: 12px 20px;
+    `}
 `
 
 export const LabelForm = styled.label`

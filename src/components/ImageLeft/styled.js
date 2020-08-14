@@ -25,7 +25,7 @@ export const ImageLeft = styled(Img)`
 
     ${media.lessThan("medium")`
         max-width: 20rem;
-        margin: auto;
+        margin: 3rem auto 1rem auto;
     `}
 `
 
