@@ -35,6 +35,7 @@ export const ModalWrapper = styled.div`
     ${media.lessThan("713px")`
         width: auto;
         height: 100%;
+        margin-top: 14%;
     `}
 `
 
@@ -47,6 +48,11 @@ export const ButtonClose = styled.button`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    ${media.lessThan("small")`
+        color: red;
+        font-size: 1.4rem;
+    `}
 `
 
 export const ButtonExclude = styled.span`
