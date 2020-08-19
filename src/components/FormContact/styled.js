@@ -87,3 +87,14 @@ export const MenuButton = styled.ul`
     display: flex;
     justify-content: space-between;
 `
+
+export const Select = styled.select``
+
+export const Option = styled.option`
+`
+
+export const ListSelected = styled.li`
+    margin: 2px;
+    padding: 5px;
+
+`

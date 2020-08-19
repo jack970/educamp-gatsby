@@ -6,7 +6,7 @@ import {kebabCase} from 'lodash'
 import MenuMobile from '../MenuMobile'
 import MenuBurguer from '../MenuMobile/MenuBuguer'
 import Search from '../Search'
-import Icon from '../SideBarBlog/Icon'
+import {SearchIcon, XCircle} from '../SideBarBlog/Icon'
 
 const Header = ({title, secondtitle, descricao, particulas, altura}) => {
     const data = useStaticQuery(graphql`
@@ -94,7 +94,7 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
 
                     <S.SearchWrapper>
                         <S.SearchToggle onClick={() => setShowSearch(!showSearch)}>
-                            <Icon />
+                            {showSearch ? <XCircle /> : <SearchIcon />  }
                         </S.SearchToggle>
                         <S.SearchCollapse showSearch={showSearch}>
                             <S.SearchContainer>

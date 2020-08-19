@@ -92,3 +92,16 @@ export const CategoriasLink = styled(Link)`
     margin-bottom: 30px;
 `
 
+export const ButtonModal = styled.button`
+    padding: .5rem .9rem;
+    border-radius: .2rem;
+    -webkit-box-shadow: 0 6px 30px rgba(0,0,0,.15);
+    box-shadow: 0 6px 30px rgba(0,0,0,.15);
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    color: #fff;
+    background-color: #37AA53;
+    border-color: transparent;
+    cursor: pointer;
+`

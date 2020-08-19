@@ -39,6 +39,8 @@ const GlobalStyles = createGlobalStyle`
     }
     a, button {
         user-select: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
     }
     ol, ul {
         list-style: none;

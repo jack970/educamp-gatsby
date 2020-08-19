@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   repo: jack970/educamp-gatsby
   branch: master
   preview_context: netlify/netlify-cms-www/deploy-preview
@@ -10,9 +10,9 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
-display_url: https://blogdaquarentena.netlify.app
-logo_url: https://educamp.netlify.app/icons/icon-192x192.png
-site_url: https://educamp.netlify.app
+display_url: https://aducamp.netlify.app
+logo_url: https://aducamp.netlify.app/icons/icon-192x192.png
+site_url: https://aducamp.netlify.app
   
 publish_mode: editorial_workflow
 media_folder: static/assets/img

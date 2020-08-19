@@ -132,7 +132,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
           })
         })
 
-        const productsPerPage = 8
+        const productsPerPage = 10
         const productsNumPages = Math.ceil(products.length / productsPerPage)
         
         Array.from({ length: productsNumPages }).forEach((_, i) => {

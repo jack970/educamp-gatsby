@@ -1,6 +1,6 @@
 import React,{ useState, useRef } from 'react'
 import * as S from '../CardSearch/styled'
-import Logo from '../SideBarBlog/Icon'
+import {SearchIcon} from '../SideBarBlog/Icon'
 import { navigate } from "@reach/router"
 
 const Search = ({initialQuery = ""}) => {
@@ -27,7 +27,7 @@ const Search = ({initialQuery = ""}) => {
                 onChange={handleChange}
             />
             <S.Button>
-                <Logo />
+                <SearchIcon />
             </S.Button>
         </div>
     </form>

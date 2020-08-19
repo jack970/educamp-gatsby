@@ -19,7 +19,6 @@ const ProductList = ( {data, pageContext}) => {
     const prevPage = currentPage - 1 === 1 ? '/produtos' : `produtos/page/${currentPage - 1}`
     const nextPage = `/produtos/page/${currentPage + 1}`
 
-    console.log(productsNumPages)
     return(
         <Layout>
             <SEO title='Produtos' />

@@ -142,6 +142,7 @@ export const LayoutProductsWrapper = styled.div`
 
     ${media.lessThan("small")`
         padding: 1rem;
+        margin-bottom: 0;
     `}
 `
 

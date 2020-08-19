@@ -56,7 +56,6 @@ export const NavBarContent = styled.div`
     position: inherit;
     text-align: center;
     color: #fff;
-    z-index: 9;
 
     h1 {
         font-size: 3rem;
