@@ -11,7 +11,7 @@ const PaginationPost = ({next, previous}) => {
           previous && (
 
             <S.RecommendedLink
-                to={`/blog/${kebabCase(previous.fields.slug)}`}
+                to={`/${kebabCase(previous.fields.slug)}`}
                 className='previous'
               >
                 <IconRight />
@@ -24,7 +24,7 @@ const PaginationPost = ({next, previous}) => {
         }
         { next && (
           <S.RecommendedLink
-              to={`/blog/${kebabCase(next.fields.slug)}`}
+              to={`/${kebabCase(next.fields.slug)}`}
               className='next'
           >
             <h1 className='h5'>Próximo <br/>

@@ -88,7 +88,14 @@ export const MenuButton = styled.ul`
     justify-content: space-between;
 `
 
-export const Select = styled.select``
+export const Select = styled.select`
+    background-color: #37AA53;
+    border: 6px solid transparent;
+    font-size: 1.3rem;
+    cursor: pointer;
+    user-select: none;
+    color: #fff;
+`
 
 export const Option = styled.option`
 `
@@ -96,5 +103,31 @@ export const Option = styled.option`
 export const ListSelected = styled.li`
     margin: 2px;
     padding: 5px;
+    max-width: fit-content;
+`
 
+export const ListBadge = styled.li`
+    margin: 2px;
+    padding: 8px;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    max-width: fit-content;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    color: #fff!important;
+    background-color: #37AA53;
+    border-radius: 10rem;
+`
+
+export const CloseBadge = styled.span`
+    padding: 0;
+    float: right;
+    margin-left: 1rem;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 `

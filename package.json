@@ -24,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.5.7",
     "lazysizes": "^5.2.2",
     "netlify-cms-app": "^2.12.19",
+    "netlify-lambda": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -31,9 +32,12 @@
     "react-particles-js": "^3.3.0",
     "react-tabs": "^3.1.1",
     "styled-components": "^5.1.1",
-    "styled-media-query": "^2.1.2"
+    "styled-media-query": "^2.1.2",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^1.0.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.0.5"
   },
   "keywords": [
@@ -41,13 +45,13 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "netlify-lambda serve functions",
+    "build": "gatsby build && netlify-lambda build functions",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",

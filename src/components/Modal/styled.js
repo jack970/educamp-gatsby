@@ -8,6 +8,7 @@ export const LayoutWrapper = styled.div`
     bottom: 0;
     left: 0;
     position: fixed;
+    overflow: auto;
 `
 
 export const FadeWrapper = styled.div`
