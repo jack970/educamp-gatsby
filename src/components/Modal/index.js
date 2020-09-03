@@ -20,12 +20,11 @@ const Modal = ({open, setModal, productList}) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('http://localhost:3002/send',{
+        fetch('/.netlify/functions/hello-world',{
             method: "POST",
-            body: JSON.stringify({
-                input,
-                "Produtos": products
-            }),
+            body: JSON.stringify(
+                input
+            ),
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
