@@ -40,6 +40,9 @@ exports.handler = async function(e) {
     transporter.sendMail(mail, function(error, info){
         if(error){
           const response = {
+            headers: {
+              'Access-Control-Allow-Origin': '*'
+            },
             statusCode: 500,
             body: JSON.stringify({
               error: error.message,
@@ -48,6 +51,9 @@ exports.handler = async function(e) {
           callback(null, response);
         }
         const response = {
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          },
           statusCode: 200,
           body: JSON.stringify({
             message: `Email processed succesfully!`
