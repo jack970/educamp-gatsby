@@ -15,8 +15,3 @@ export const maskemail = value => {
     return value
         .replace(/[<>()[\],;:"]/g, '')
 }
-
-export const handleAddMask  = (e, mask, setInput, input) => {
-  e.persist()
-  setInput(inputs => ({ ...inputs, [e.target.name]: mask ? mask(e.target.value) : e.target.value }))
-}

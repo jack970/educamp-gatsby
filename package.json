@@ -32,26 +32,19 @@
     "react-particles-js": "^3.3.0",
     "react-tabs": "^3.1.1",
     "styled-components": "^5.1.1",
-    "styled-media-query": "^2.1.2",
-    "uninstall": "0.0.0"
+    "styled-media-query": "^2.1.2"
   },
-  "devDependencies": {
-    "http-proxy-middleware": "^1.0.5",
-    "npm-run-all": "^4.1.5",
-    "prettier": "2.0.5"
-  },
+  "devDependencies": {},
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
   "scripts": {
     "develop": "gatsby develop",
-    "start": "run-p start:**",
-    "start:app": "npm run develop",
-    "start:lambda": "netlify-lambda serve functions",
-    "build": "gatsby build && netlify-lambda build functions",
-    "build:app": "gatsby build",
-    "build:lambda": "netlify-lambda build functions"
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",

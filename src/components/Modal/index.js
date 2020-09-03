@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import * as S from './styled'
 import * as Form from '../FormContact/styled'
-import { maskphone, maskemail, maskname, handleAddMask} from './Masks'
-import { useEffect } from 'react'
+import { maskphone, maskemail, maskname} from './Masks'
 
 const Modal = ({open, setModal, productList}) => {
-
+   
     const [ products, setProducts] = useState([])
     const [ input, setInput] = useState({})
 
     useEffect(() => {
-        setInput(inputs => ({...inputs, 'Produtos': products}))
+        setInput(inputs => ({...inputs, "Produtos": products}))
+
     }, [products])
+
+    const handleAddMask  = (e, mask, setInput) => {
+        e.persist()
+        setInput(inputs => ({ ...inputs, [e.target.name]: mask ? mask(e.target.value) : e.target.value }))
+      }
 
     function handleSubmit(e) {
         e.preventDefault()
         fetch('http://localhost:3002/send',{
             method: "POST",
-            body: JSON.stringify(input),
+            body: JSON.stringify({
+                input,
+                "Produtos": products
+            }),
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -33,21 +41,26 @@ const Modal = ({open, setModal, productList}) => {
                         alert("Falha ao enviar a mensagem.")
                 }
         })
+
+        alert(
+            JSON.stringify({
+                input
+            })
+        )
+    }
+
+    const handleAddProduct = (e) => {
+        e.persist()
+        const value = e.target.value
+        if(products) {
+            setProducts([...products, value])
+        }
+        console.log(products)
     }
 
     const resetForm = () => {
         setInput({})
         setProducts([])
-    }
-
-    function handleAddProduct(e) {
-        const value = e.target.value
-        const index = products.indexOf(value)
-        
-        if(index === -1) {
-            setProducts([...products, value])
-        }
-        console.log(input)
     }
     
     const handleRemoveProduct = productItem => {
@@ -84,7 +97,7 @@ const Modal = ({open, setModal, productList}) => {
                         value={input.email || ''}
                         onChange={(e) => handleAddMask(e, maskemail, setInput)} 
                         id="email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
                         required/>
                     </Form.GroupForm>
                     <Form.GroupForm className="field half">
@@ -106,7 +119,8 @@ const Modal = ({open, setModal, productList}) => {
                     </Form.GroupForm>
                     <Form.GroupForm>
                         <Form.LabelForm htmlFor="ListaProdutos">Escolha um Produto:</Form.LabelForm>
-                        <Form.Select name={`Produtos${products}`}  onChange={(e) => handleAddProduct(e)}>
+                        <Form.Select name='Produtos' onChange={(e) => handleAddProduct(e)}>
+                            <Form.Option value='' key={null}></Form.Option>
                             {productList.map(({node}, id) => (
                                 <Form.Option value={node.frontmatter.title} key={id}>{node.frontmatter.title}</Form.Option>
                             ))}

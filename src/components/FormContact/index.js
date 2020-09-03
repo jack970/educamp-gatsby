@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styled'
 
 const FormContact = () => {
+
+    useEffect(() => {
+        console.log('atualizado')
+    })
     return(
         <S.LayoutWrapper>
             <S.ContactForm name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
