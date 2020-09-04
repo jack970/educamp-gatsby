@@ -1,5 +1,6 @@
+const nodemailer = require("nodemailer")
+
 exports.handler = async function(e, context, callback) {
-  const nodemailer = require("nodemailer")
 
   if (e.httpMethod !== "POST") {
       return { statusCode: 405, body: "Método não permitido!" }
@@ -9,8 +10,8 @@ exports.handler = async function(e, context, callback) {
       host: 'smtp.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: 'italocod@hotmail.com',
-          pass: '1000097517e80'
+          user: process.env.USER,
+          pass: process.env.PASS
     }
   }
   
@@ -22,7 +23,7 @@ exports.handler = async function(e, context, callback) {
   const nome = params.Nome
   const email = params.email
   const telefone = params.telefone
-  const message = params.message === 'undefined' ? 'VAZIO' : params.message
+  const message = params.message
   const produtos = params.Produtos
 
   const content = `Nome do Cliente: ${nome}
@@ -44,4 +45,4 @@ exports.handler = async function(e, context, callback) {
   })
   .catch(e => callback(e, { statusCode: 500, body: 'Error sending email' }));
 
-  }
+}

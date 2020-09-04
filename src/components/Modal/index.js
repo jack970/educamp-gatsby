@@ -31,21 +31,7 @@ const Modal = ({open, setModal, productList}) => {
             },
                 }).then(
                     (response) => (response.json())
-                ).then((response)=>{
-                    if (response.status === 'success'){
-                        alert("Mensagem enviada.")
-                        resetForm()
-                }
-                    else if(response.status === 'fail'){
-                        alert("Falha ao enviar a mensagem.")
-                }
-        })
-
-        alert(
-            JSON.stringify({
-                input
-            })
-        )
+                )
     }
 
     const handleAddProduct = (e) => {
