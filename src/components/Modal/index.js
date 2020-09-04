@@ -31,7 +31,13 @@ const Modal = ({open, setModal, productList}) => {
             },
                 }).then(
                     (response) => (response.json())
-                )
+                ).then((messages) => {console.log(messages)})
+
+        alert(
+            JSON.stringify({
+                input
+            })
+        )
     }
 
     const handleAddProduct = (e) => {
