@@ -7,11 +7,11 @@ exports.handler = async function(e, context, callback) {
     }
 
   const transport = {
-      host: 'smtp.outlook.com', // Don’t forget to replace with the SMTP host of your provider
+      host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: 'italocod@hotmail.com',
-          pass: '1000097517e80'
+          user: 'work_teste7@outlook.com',
+          pass: 'senha123'
     }
   }
   
