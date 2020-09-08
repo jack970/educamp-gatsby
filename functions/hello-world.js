@@ -44,10 +44,5 @@ exports.handler = async function(e, context, callback) {
   .then(() => {
     callback(null, { statusCode: 200, body: "Success" });
   })
-<<<<<<< HEAD
   .catch(e => callback(e, { statusCode: 500, body: "Error sending email" }))
-=======
-  .catch(e => callback(e, { statusCode: 500, body: 'Error sending email' }));
-
->>>>>>> fcc7336d9fd2a69c8dbe56f3e8890f7dd5f5e426
 }
