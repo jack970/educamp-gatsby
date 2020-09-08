@@ -4,20 +4,19 @@ import * as Form from '../FormContact/styled'
 import { maskphone, maskemail, maskname} from './Masks'
 
 const Modal = ({open, setModal, productList}) => {
-   
     const [ products, setProducts] = useState([])
     const [ input, setInput] = useState({})
 
     useEffect(() => {
         setInput(inputs => ({...inputs, "Produtos": products}))
-
+        
     }, [products])
 
     const handleAddMask  = (e, mask, setInput) => {
         e.persist()
         setInput(inputs => ({ ...inputs, [e.target.name]: mask ? mask(e.target.value) : e.target.value }))
-      }
-
+    }
+    
     function handleSubmit(e) {
         e.preventDefault()
         fetch('/.netlify/functions/hello-world',{
@@ -26,35 +25,30 @@ const Modal = ({open, setModal, productList}) => {
                 input
             ),
             headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+                "Accept": "application/json",
+                "Content-Type": "application/json"
             },
                 }).then(
-                    (response) => (response.json())
-                ).then((response)=>{
-                    if (response.status === 'success'){
-                        alert("Mensagem enviada.")
-                        resetForm()
-                }
-                    else if(response.status === 'fail'){
-                        alert("Falha ao enviar a mensagem.")
-                }
-        })
+                    (response) => (console.log(response.json()))
+                ).then((messages) => {console.log(messages)})
 
-        alert(
-            JSON.stringify({
-                input
-            })
-        )
+            resetForm()
+    }
+
+    const handleAddQuantidade = (e, id) => {
+        const { value } = e.target
+        const values = [...products]
+        values[id].quantidade = value
+        setProducts(values)
     }
 
     const handleAddProduct = (e) => {
         e.persist()
-        const value = e.target.value
+        const {name, value } = e.target
+        
         if(products) {
-            setProducts([...products, value])
+            setProducts(produto => ([...produto, { [name]: value}]))
         }
-        console.log(products)
     }
 
     const resetForm = () => {
@@ -77,16 +71,14 @@ const Modal = ({open, setModal, productList}) => {
                     name="Produtos" 
                     method="post" 
                     onSubmit={(e) => handleSubmit(e)}
-                    data-netlify="true" 
-                    data-netlify-honeypot="bot-field"
                     >
                     <Form.GroupForm className="field">
                         <Form.LabelForm htmlFor="nome">Nome:</Form.LabelForm>
                         <Form.ContactInput 
-                        name="Nome" 
+                        name="nome" 
                         id="nome" 
-                        value={input.Nome || ''}
-                        onChange={(e) => handleAddMask(e, maskname, setInput, products)} 
+                        value={input.nome || ''}
+                        onChange={(e) => handleAddMask(e, maskname, setInput)} 
                         required/>
                     </Form.GroupForm>
                         <Form.GroupForm className="field half">
@@ -118,8 +110,7 @@ const Modal = ({open, setModal, productList}) => {
                     </Form.GroupForm>
                     <Form.GroupForm>
                         <Form.LabelForm htmlFor="ListaProdutos">Escolha um Produto:</Form.LabelForm>
-                        <Form.Select name='Produtos' onChange={(e) => handleAddProduct(e)}>
-                            <Form.Option value='' key={null}></Form.Option>
+                        <Form.Select name='nome' onChange={(e) => handleAddProduct(e)}>
                             {productList.map(({node}, id) => (
                                 <Form.Option value={node.frontmatter.title} key={id}>{node.frontmatter.title}</Form.Option>
                             ))}
@@ -129,7 +120,11 @@ const Modal = ({open, setModal, productList}) => {
                         {products.map((product, id) => {
                             return(
                             <Form.ListBadge key={id}>
-                                    {product}
+                                    {product.nome} &emsp; &ensp; Quantidade:
+                                    <input style={{ width: '5rem'}} name="quantidade" type='number'
+                                        value={product.quantidade || ''}
+                                        onChange={(e) => handleAddQuantidade(e, id)}
+                                    />
                                     <Form.CloseBadge onClick={() => handleRemoveProduct(product)}
                                     >X</Form.CloseBadge>
                             </Form.ListBadge>
@@ -137,8 +132,8 @@ const Modal = ({open, setModal, productList}) => {
                     </ul>
                     <Form.GroupForm className="field">
                         <Form.LabelForm htmlFor="message">Mensagem:</Form.LabelForm>
-                        <Form.TextArea name="message" id="message" rows="6" 
-                            value={input.message || ''}
+                        <Form.TextArea name="mensagem" id="message" rows="6" 
+                            value={input.mensagem || ''}
                             onChange={(e) => handleAddMask(e, null, setInput)} 
                         />
                     </Form.GroupForm>

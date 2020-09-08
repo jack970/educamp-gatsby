@@ -1,16 +1,17 @@
+const nodemailer = require("nodemailer")
+
 exports.handler = async function(e, context, callback) {
-  const nodemailer = require("nodemailer")
 
   if (e.httpMethod !== "POST") {
       return { statusCode: 405, body: "Método não permitido!" }
     }
 
   const transport = {
-      host: 'smtp.outlook.com', // Don’t forget to replace with the SMTP host of your provider
+      host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: 'italocod@hotmail.com',
-          pass: '1000097517e80'
+          user: 'work_teste7@outlook.com',
+          pass: 'senha123'
     }
   }
   
@@ -19,18 +20,19 @@ exports.handler = async function(e, context, callback) {
 
   const params = JSON.parse(e.body);
 
-  const nome = params.Nome
+  const nome = params.nome
   const email = params.email
   const telefone = params.telefone
-  const message = params.message === 'undefined' ? 'VAZIO' : params.message
+  const message = params.mensagem
   const produtos = params.Produtos
-
+  
   const content = `Nome do Cliente: ${nome}
               \nEmail: ${email}
               \nTelefone: ${telefone}
               \nMensagem: ${message}
-              \nProdutos: ${produtos} 
+              \n${produtos && produtos.map(produto => `Produto: ${produto.nome} | Quantidade: ${produto.quantidade}\n`).join('')}
               `
+  console.log(content)
   const mail = {
       from: nome,
       to: 'italocod@hotmail.com',  // Change to email address that you want to receive messages on
@@ -38,10 +40,9 @@ exports.handler = async function(e, context, callback) {
       text: content
   }
 
-  transporter.sendMail(mail)
+  return transporter.sendMail(mail)
   .then(() => {
-    callback(null, { statusCode: 200, body: 'Success' });
+    callback(null, { statusCode: 200, body: "Success" });
   })
-  .catch(e => callback(e, { statusCode: 500, body: 'Error sending email' }));
-
-  }
+  .catch(e => callback(e, { statusCode: 500, body: "Error sending email" }))
+}
