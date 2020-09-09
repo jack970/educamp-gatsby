@@ -116,6 +116,11 @@ export const ListBadge = styled.li`
     color: #fff!important;
     background-color: #37AA53;
     border-radius: 10rem;
+
+    ${media.lessThan("small")`
+        display: inline-flex;
+    
+    `}
 `
 
 export const CloseBadge = styled.span`

@@ -31,7 +31,7 @@ const Modal = ({open, setModal, productList}) => {
                 }).then(
                     (response) => (console.log(response.json()))
                 ).then((messages) => {console.log(messages)})
-
+            alert("Mensagem enviada.")
             resetForm()
     }
 
@@ -45,8 +45,9 @@ const Modal = ({open, setModal, productList}) => {
     const handleAddProduct = (e) => {
         e.persist()
         const {name, value } = e.target
+        const index = products.map(produto => {return produto.nome}).indexOf(value)
         
-        if(products) {
+        if(index === -1) {
             setProducts(produto => ([...produto, { [name]: value}]))
         }
     }
@@ -120,8 +121,8 @@ const Modal = ({open, setModal, productList}) => {
                         {products.map((product, id) => {
                             return(
                             <Form.ListBadge key={id}>
-                                    {product.nome} &emsp; &ensp; Quantidade:
-                                    <input style={{ width: '5rem'}} name="quantidade" type='number'
+                                    {product.nome} &emsp; Qntd.:
+                                    <S.ModalQuantidade style={{ }} name="quantidade" type='number'
                                         value={product.quantidade || ''}
                                         onChange={(e) => handleAddQuantidade(e, id)}
                                     />

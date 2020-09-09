@@ -10,8 +10,8 @@ exports.handler = async function(e, context, callback) {
       host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: process.env.GATSBY_USER,
-          pass: process.env.GATSBY_PASS
+          user: 'work_teste7@outlook.com',
+          pass: 'senha123'
     }
   }
   

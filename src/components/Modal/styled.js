@@ -75,3 +75,14 @@ export const ModalTitle = styled.h1`
 `
 
 export const ModalDescription = styled.p``
+
+export const ModalQuantidade = styled.input`
+    width: 3rem;
+    background: #37aa53;
+    border: none;
+    text-align: center;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    font-size: 1.3rem;
+    
+`
