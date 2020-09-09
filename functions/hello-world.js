@@ -1,5 +1,3 @@
-const dotenv = require("dotenv").config()
-
 const nodemailer = require("nodemailer")
 
 exports.handler = async function(e, context, callback) {
@@ -12,8 +10,8 @@ exports.handler = async function(e, context, callback) {
       host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: dotenv.process.env.USER,
-          pass: dotenv.process.env.PASS
+          user: process.env.GATSBY_USER,
+          pass: process.env.GATSBY_PASS
     }
   }
   
@@ -34,14 +32,13 @@ exports.handler = async function(e, context, callback) {
               \nMensagem: ${message}
               \n${produtos && produtos.map(produto => `Produto: ${produto.nome} | Quantidade: ${produto.quantidade}\n`).join('')}
               `
-  console.log(content)
   const mail = {
       from: nome,
       to: 'italocod@hotmail.com',  // Change to email address that you want to receive messages on
       subject: `Mensagem de Pedido do Cliente: ${nome}`,
       text: content
   }
-
+  console.log(dotenv.config())
   return transporter.sendMail(mail)
   .then(() => {
     callback(null, { statusCode: 200, body: "Success" });
