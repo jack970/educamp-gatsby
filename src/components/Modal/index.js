@@ -7,6 +7,9 @@ const Modal = ({open, setModal, productList}) => {
     const [ products, setProducts] = useState([])
     const [ input, setInput] = useState({})
 
+    const productListTitle = productList.map(({node}) => node.frontmatter.title)
+    const productListSemRepeticao = [ ...new Set(productListTitle)]
+
     useEffect(() => {
         setInput(inputs => ({...inputs, "Produtos": products}))
         
@@ -46,7 +49,7 @@ const Modal = ({open, setModal, productList}) => {
         e.persist()
         const {name, value } = e.target
         const index = products.map(produto => {return produto.nome}).indexOf(value)
-        
+
         if(index === -1) {
             setProducts(produto => ([...produto, { [name]: value}]))
         }
@@ -112,8 +115,8 @@ const Modal = ({open, setModal, productList}) => {
                     <Form.GroupForm>
                         <Form.LabelForm htmlFor="ListaProdutos">Escolha um Produto:</Form.LabelForm>
                         <Form.Select name='nome' onChange={(e) => handleAddProduct(e)}>
-                            {productList.map(({node}, id) => (
-                                <Form.Option value={node.frontmatter.title} key={id}>{node.frontmatter.title}</Form.Option>
+                            {productListSemRepeticao.map((title, id) => (
+                                <Form.Option value={title} key={id}>{title}</Form.Option>
                             ))}
                         </Form.Select>
                     </Form.GroupForm>
