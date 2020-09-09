@@ -1,4 +1,4 @@
-require("dotenv").config()
+const dotenv = require("dotenv").config()
 
 const nodemailer = require("nodemailer")
 
@@ -12,8 +12,8 @@ exports.handler = async function(e, context, callback) {
       host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: process.env.USER,
-          pass: process.env.PASS
+          user: dotenv.process.env.USER,
+          pass: dotenv.process.env.PASS
     }
   }
   
