@@ -38,7 +38,7 @@ exports.handler = async function(e, context, callback) {
       subject: `Mensagem de Pedido do Cliente: ${nome}`,
       text: content
   }
-  console.log(dotenv.config())
+  
   return transporter.sendMail(mail)
   .then(() => {
     callback(null, { statusCode: 200, body: "Success" });
