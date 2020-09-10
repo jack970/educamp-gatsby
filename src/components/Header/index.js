@@ -72,21 +72,22 @@ const Header = ({title, secondtitle, descricao, particulas, altura}) => {
                             <S.LiNavBar key={id}>
                                 {link.subMenu ? 
                                     (
-                                       <S.LinkcomSubmenu> {link.label}</S.LinkcomSubmenu>
+                                        <>
+                                            <S.LinkcomSubmenu> {link.label}</S.LinkcomSubmenu>
+                                            <S.DropdownMenu>
+                                                {link.subMenu.map((submenu, id)=> 
+                                                    <S.DropdownList key={id}>
+                                                        <S.DropdownLink to={`/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.DropdownLink>
+                                                    </S.DropdownList>
+                                                )}
+                                            </S.DropdownMenu>
+                                        </>
                                     ) : (
 
                                         <S.LinksNavBar to={ link.label === 'Início' ? '/' : `/${kebabCase(link.label)}`
                                         }> {link.label} </S.LinksNavBar>
                                     )
                                 }
-                                {link.subMenu ? 
-                                (<S.DropdownMenu>
-                                    {link.subMenu.map((submenu, id)=> 
-                                            <S.DropdownList key={id}>
-                                                <S.DropdownLink to={`/${kebabCase(submenu.subLabel)}`}>{submenu.subLabel}</S.DropdownLink>
-                                            </S.DropdownList>
-                                        )}
-                                </S.DropdownMenu>) : null}
                             </S.LiNavBar> 
                             )
                         }
