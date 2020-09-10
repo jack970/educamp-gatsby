@@ -115,7 +115,12 @@ export const ListBadge = styled.li`
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     color: #fff!important;
     background-color: #37AA53;
-    border-radius: 10rem;
+    border-radius: 0rem;
+
+    ${media.greaterThan("medium")`
+        border-radius: 10rem;
+    
+    `}
 
     ${media.lessThan("small")`
         display: inline-flex;

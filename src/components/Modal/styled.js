@@ -42,6 +42,8 @@ export const ModalWrapper = styled.div`
 
 export const ButtonClose = styled.button`
     padding: 0;
+    color: red;
+    font-size: 2rem;
     float: right;
     cursor: pointer;
     background: 0 0;
@@ -51,7 +53,6 @@ export const ButtonClose = styled.button`
     appearance: none;
 
     ${media.lessThan("small")`
-        color: red;
         font-size: 1.4rem;
     `}
 `
@@ -84,5 +85,4 @@ export const ModalQuantidade = styled.input`
     color: #fff;
     border-bottom: 2px solid #fff;
     font-size: 1.3rem;
-    
 `

@@ -124,7 +124,7 @@ const Modal = ({open, setModal, productList}) => {
                         {products.map((product, id) => {
                             return(
                             <Form.ListBadge key={id}>
-                                    {product.nome} &emsp; Qntd.:
+                                    {product.nome} &emsp; Quantidade:
                                     <S.ModalQuantidade style={{ }} name="quantidade" type='number'
                                         value={product.quantidade || ''}
                                         onChange={(e) => handleAddQuantidade(e, id)}
