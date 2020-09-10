@@ -7,6 +7,11 @@ export const LayoutWrapper = styled.div`
     margin-bottom: 60px;
     margin: 2rem 3.7rem;
 
+    ${media.greaterThan("1876px")`
+        padding: 2rem 28rem;
+    
+    `}
+
     ${media.lessThan("small")`
         margin: 1rem;
     `}

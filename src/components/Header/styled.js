@@ -195,15 +195,24 @@ export const SearchToggle = styled.button`
 
 export const SearchCollapse = styled.div`
     display: ${props => props.showSearch ? 'block' : 'none'};
-    position: absolute;
     width: 100%;
-    left: 0;
+
+    ${media.greaterThan("1876px")`
+        width: 50%;
+    `}
 `
 
 export const SearchContainer = styled.div`
-    padding: 2.5rem;
-    margin: auto;
     position: absolute;
-    width: 100%;
+    width: 45%;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
     left: 0;
+    right: 0;
+    text-align: center;
+
+    ${media.greaterThan("1876px")`
+        width: 50%;
+    `}
 `

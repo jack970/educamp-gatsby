@@ -11,6 +11,11 @@ export const LayoutWrapper = styled.div`
     justify-content: space-around;
     align-items: center;
 
+    ${media.greaterThan("1876px")`
+        padding: 2rem 28rem;
+    
+    `}
+
     ${media.lessThan("medium")`
         display: contents;
     `}

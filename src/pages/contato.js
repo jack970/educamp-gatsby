@@ -13,7 +13,7 @@ const ContatoPage = () => {
       <Header
         title='Contato'
         particulas="block"
-        descricao='Você é um cliente especial! Para agradecer essa parceria, gostaríamos de oferecer à você uma oportunidade exclusiva. Fale com o nosso representante.'
+        descricao='Entre em contato conosco. Nossa empresa agradece.'
         altura='20'
         />
       <FormContact />

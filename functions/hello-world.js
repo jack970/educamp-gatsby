@@ -33,12 +33,12 @@ exports.handler = async function(e, context, callback) {
               \n${produtos && produtos.map(produto => `Produto: ${produto.nome} | Quantidade: ${produto.quantidade}\n`).join('')}
               `
   const mail = {
-      from: nome,
+      from: 'work_teste7@outlook.com',
       to: 'italocod@hotmail.com',  // Change to email address that you want to receive messages on
       subject: `Mensagem de Pedido do Cliente: ${nome}`,
       text: content
   }
-  
+
   return transporter.sendMail(mail)
   .then(() => {
     callback(null, { statusCode: 200, body: "Success" });

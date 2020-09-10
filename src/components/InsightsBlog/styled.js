@@ -12,6 +12,10 @@ export const LayoutWrapper = styled.div`
 
     display: grid;
 
+    ${media.greaterThan("1876px")`
+        padding: 2rem 38rem;
+    `}
+
     ${media.lessThan("medium")`
         display: block;
         grid-template-columns: auto;
@@ -133,6 +137,11 @@ export const LayoutProductsWrapper = styled.div`
     grid-template-rows: 360px auto;
     grid-gap: 45px 110px;
     display: grid;
+
+    ${media.greaterThan("1876px")`
+        padding: 2rem 38rem;
+    
+    `}
 
     ${media.lessThan("large")`
         display: block;
