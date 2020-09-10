@@ -54,7 +54,7 @@ const SideBarBlog = ({iterateList, categoriesTitle}) => {
                 </S.CategoriasMenu>
             </S.CategoriesWrapper>
             <S.ButtonModal onClick={() => setModal(!showModal)}>
-                Fazer Orçamento
+                FAZER ORÇAMENTO
             </S.ButtonModal>
             <Modal open={showModal} setModal={setModal} productList={productList}/>
         </S.SideBarWrapper>

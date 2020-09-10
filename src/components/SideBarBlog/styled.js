@@ -10,8 +10,6 @@ export const SideBarWrapper = styled.aside`
     grid-auto-rows: -webkit-max-content;
     grid-auto-rows: max-content;
     margin-bottom: 30px;
-
-
 `
 
 export const Title = styled.h1`
@@ -100,6 +98,7 @@ export const ButtonModal = styled.button`
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
+    font-size: 1.3rem;
     color: #fff;
     background-color: #37AA53;
     border-color: transparent;
