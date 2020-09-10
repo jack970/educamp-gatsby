@@ -9,7 +9,8 @@ export const LayoutWrapper = styled.div`
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: 360px auto;
     grid-gap: 45px 110px;
-
+    width: fit-content;
+    margin: auto;
     display: grid;
 
     ${media.greaterThan("1876px")`
@@ -137,6 +138,8 @@ export const LayoutProductsWrapper = styled.div`
     grid-template-rows: 360px auto;
     grid-gap: 45px 110px;
     display: grid;
+    width: fit-content;
+    margin: auto;
 
     ${media.greaterThan("1876px")`
         padding: 2rem 38rem;
