@@ -29,11 +29,11 @@ export const NavBarFlex = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0 3rem;
+    margin: 0 0 3rem;
 
     ${media.lessThan("large")`
         justify-content: space-around;
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
     `}
 `
 

@@ -3,16 +3,19 @@ const nodemailer = require("nodemailer")
 exports.handler = async function(e, context, callback) {
 
   if (e.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Método não permitido!" }
-    }
+      return { 
+        statusCode: 405, 
+        body: "Método não permitido!" 
+      }
+  }
 
   const transport = {
       host: 'smtp-mail.outlook.com', // Don’t forget to replace with the SMTP host of your provider
       port: 587,
       auth: {
-          user: 'work_teste7@outlook.com',
-          pass: 'senha123'
-    }
+        user: process.env.GATSBY_USER,
+        pass: process.env.GATSBY_PASS
+      }
   }
   
   const transporter = nodemailer.createTransport(transport)
